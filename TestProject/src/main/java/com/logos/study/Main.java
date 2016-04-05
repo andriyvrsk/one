@@ -29,16 +29,16 @@ public class Main {
 
 		Statement statement = conn.createStatement();
 
-		String sql = "select * from USERS";
+		String sql = "select * from CITY";
 
 		ResultSet rs = statement.executeQuery(sql);
-		List<User> users = new ArrayList<>();
+		List<City> users = new ArrayList<>();
 		
 		while (rs.next()) {
-			users.add(new User(rs.getInt("id"), rs.getString("name")));
+			users.add(new City(rs.getInt("id"), rs.getString("name"), rs.getInt("population")));
 		}
 		
-		for (User u : users) {
+		for (City u : users) {
 			System.out.println(u);
 		}
 
