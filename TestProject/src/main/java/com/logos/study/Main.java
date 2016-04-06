@@ -15,10 +15,10 @@ public class Main {
 
 	public static void main(String[] args) throws ClassNotFoundException, SQLException, IOException {
 
-		Logic.connect();
-		Logic.print();
+		//Logic.connect();
+		//Logic.print();
 		
-		
+		Class.forName("com.logos.study.Table");
 
 		
 		
