@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+import org.hibernate.Session;
+
 public class Main {
 
 	public static void main(String[] args) throws ClassNotFoundException, SQLException, IOException {
@@ -18,7 +20,19 @@ public class Main {
 		//Logic.connect();
 		//Logic.print();
 		
-		Class.forName("com.logos.study.Table");
+		Session session = Util.getSessionFactory().openSession(); 
+        session.beginTransaction(); 
+ 
+        // Add new Employee object 
+        Qwerty emp = new Qwerty(null, null); 
+         
+        emp.setFirstName("demo"); 
+        emp.setLastName("user"); 
+ 
+        session.save(emp); 
+ 
+        session.getTransaction().commit(); 
+        Util.shutdown(); 
 
 		
 		
